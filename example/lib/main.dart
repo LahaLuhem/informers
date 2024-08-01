@@ -164,7 +164,7 @@ class HomeViewModel extends BaseViewModel {
       )];
 
   TextStyle get exampleTitleStyle =>
-      Theme.of(context).textTheme.bodyText1!.copyWith(
+      Theme.of(context).textTheme.bodyLarge!.copyWith(
             fontSize: 20,
             fontWeight: FontWeight.bold,
           );

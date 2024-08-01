@@ -28,7 +28,7 @@ class MethodExample extends StatelessWidget {
               title,
               style: Theme.of(context)
                   .textTheme
-                  .headline6!
+                  .titleLarge!
                   .copyWith(fontSize: 16, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),

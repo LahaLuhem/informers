@@ -144,7 +144,7 @@ class _MapInformerExampleState extends State<MapInformerExample> {
                                   child: ElevatedButton(
                                     onPressed: widget.model.decrementMapItems,
                                     child: AnimatedDefaultTextStyle(
-                                      style: widget.model.textTheme.bodyText1!
+                                      style: widget.model.textTheme.bodyLarge!
                                           .copyWith(
                                         decoration: mapItemsIsEmpty
                                             ? TextDecoration.lineThrough
