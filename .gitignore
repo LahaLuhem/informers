@@ -27,3 +27,8 @@
 .dart_tool/
 .packages
 build/
+
+# GPT related
+gpt_agent_todo.md
+
+# Synced documentation
