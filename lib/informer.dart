@@ -21,6 +21,15 @@ class Informer<T> extends InformNotifier implements ValueListenable<T> {
   /// For silent updates, use [silentUpdate].
   set value(T newValue) => update(newValue);
 
+  /// Alternative etter of the current value of the informer.
+  T get data => _value;
+
+  /// Alternative setter of the current value of the informer.
+  ///
+  /// This will notify listeners by default, respecting the [_forceUpdate] flag.
+  /// For silent updates, use [silentUpdate].
+  set data(T newData) => update(newData);
+
   /// Indicates whether the informer should always update the value and [notifyListeners] when calling the [update] and [updateCurrent] methods.
   ///
   /// Even though the value might be the same.
@@ -31,6 +40,13 @@ class Informer<T> extends InformNotifier implements ValueListenable<T> {
   /// This is a convenience method equivalent to calling [update] with [doNotifyListeners] set to false.
   /// Still respects the [_forceUpdate] flag.
   void silentUpdate(T value) => update(value, doNotifyListeners: false);
+
+  /// Updates the current value without notifying listeners.
+  ///
+  /// This is a convenience method equivalent to calling [updateCurrent] with [doNotifyListeners] set to false.
+  /// Still respects the [_forceUpdate] flag.
+  void silentUpdateCurrent(T Function(T cValue) current) =>
+      updateCurrent(current, doNotifyListeners: false);
 
   /// Setter of the current value of the informer.
   void update(
@@ -47,7 +63,7 @@ class Informer<T> extends InformNotifier implements ValueListenable<T> {
 
   /// Provides current value and updates it with received value.
   void updateCurrent(
-    T Function(T value) current, {
+    T Function(T cValue) current, {
     bool doNotifyListeners = true,
   }) {
     final newValue = current(_value);

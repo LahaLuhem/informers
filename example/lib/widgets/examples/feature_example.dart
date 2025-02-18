@@ -57,7 +57,7 @@ class _FeatureExampleState extends State<FeatureExample> {
                     Expanded(
                       child: Text(
                         widget.title,
-                        style: Theme.of(context).textTheme.headline6!.copyWith(
+                        style: Theme.of(context).textTheme.headlineMedium!.copyWith(
                               fontWeight: FontWeight.bold,
                               color: Colors.white,
                             ),

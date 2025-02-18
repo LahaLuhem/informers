@@ -116,7 +116,7 @@ class _ListInformerExampleState extends State<ListInformerExample> {
                                   child: ElevatedButton(
                                     onPressed: widget.model.decrementListItems,
                                     child: AnimatedDefaultTextStyle(
-                                      style: widget.model.textTheme.bodyText1!
+                                      style: widget.model.textTheme.bodyMedium!
                                           .copyWith(
                                         decoration: listItemsIsEmpty
                                             ? TextDecoration.lineThrough
