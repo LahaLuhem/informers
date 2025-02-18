@@ -1,3 +1,8 @@
+## 0.0.3+2
+
+* **✨ New:** Added standard value setter to `Informer` class.
+* **✨ New:** Added `silentUpdate` method to `Informer` class for updating values without notifying listeners.
+
 ## 0.0.3+1
 * **🐛️ Bugfix:** Fixed `MapInformer` and `ListInformer` not notifying listeners unless `forceUpdate` was set to `true`.
 * 

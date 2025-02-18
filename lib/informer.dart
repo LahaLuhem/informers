@@ -15,10 +15,22 @@ class Informer<T> extends InformNotifier implements ValueListenable<T> {
   @override
   T get value => _value;
 
+  /// Setter of the current value of the informer.
+  ///
+  /// This will notify listeners by default, respecting the [_forceUpdate] flag.
+  /// For silent updates, use [silentUpdate].
+  set value(T newValue) => update(newValue);
+
   /// Indicates whether the informer should always update the value and [notifyListeners] when calling the [update] and [updateCurrent] methods.
   ///
   /// Even though the value might be the same.
   final bool _forceUpdate;
+
+  /// Updates the value without notifying listeners.
+  ///
+  /// This is a convenience method equivalent to calling [update] with [doNotifyListeners] set to false.
+  /// Still respects the [_forceUpdate] flag.
+  void silentUpdate(T value) => update(value, doNotifyListeners: false);
 
   /// Setter of the current value of the informer.
   void update(
