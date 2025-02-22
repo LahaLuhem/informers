@@ -1,0 +1,28 @@
+# Project configuration
+project:
+  # Project key to prefix commit messages (e.g., [TURBO], [JIRA-123])
+  key: TURBO
+
+# AI configuration
+ai:
+  # Gemini model to use for generating commit messages
+  # Available models: gemini-pro, gemini-2.0-flash
+  model: gemini-2.0-flash
+
+# Raycast configuration
+raycast:
+  # Snippet generation settings
+  snippets:
+    # Base directory to search for files
+    root_folder: "/Users/codaveto/Documents/turbo/"
+    # Directory where the JSON file will be written
+    output_folder: "/Users/codaveto/Documents/turbo/developer/artifacts"
+    # List of folder names to include in the search
+    allowed_folders:
+      - "prompts"
+      - "templates"
+      - "systems"
+      - "tools"
+    # List of file extensions to include
+    allowed_file_types:
+      - ".md"

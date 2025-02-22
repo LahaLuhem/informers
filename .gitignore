@@ -32,3 +32,4 @@ build/
 gpt_agent_todo.md
 
 # Synced documentation
+.turbodev/secrets.yaml/
