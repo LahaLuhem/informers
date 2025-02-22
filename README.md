@@ -230,10 +230,6 @@ class MyCustomNotifier extends InformNotifier{
 }
 ```
 
-## Contributing
-
-Contributions are welcome!  Please feel free to open issues or submit pull requests on the [GitHub repository](your_repo_link_here).  (Replace `your_repo_link_here` with the actual link.)
-
 ## License
 
 This package is released under the MIT License. See [LICENSE](LICENSE) for details.
