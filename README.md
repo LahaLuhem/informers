@@ -244,7 +244,7 @@ Key improvements and explanations in this README:
     *   Creation
     *   Adding listeners
     *   Updating values (with and without notifications)
-    *   Using `updateCurrent`
+    *   Using `updateCurrent`[generate_raycast_snippets.py](..%2F..%2F..%2F..%2F..%2Fturbo%2Fdeveloper%2Fscripts%2Fgenerate_raycast_snippets.py)
     *   Collection-specific methods (add, remove, etc.)
     *  `forceUpdate` usage
     *   Imports are now included, and necessary packages such as foundation.
