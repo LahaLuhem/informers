@@ -2,8 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:informers/inform_notifier.dart';
 
 /// Altered version of Flutter's [ValueNotifier] with extended list capabilities.
-class MaxLengthListInformer<T> extends InformNotifier
-    implements ValueListenable<List<T>> {
+class MaxLengthListInformer<T> extends InformNotifier implements ValueListenable<List<T>> {
   MaxLengthListInformer(
     this._value, {
     bool forceUpdate = false,

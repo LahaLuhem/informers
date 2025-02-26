@@ -43,8 +43,7 @@ class VerticalShrink extends StatelessWidget {
                     opacity: Tween<double>(begin: 0.0, end: 1.0).animate(
                       CurvedAnimation(
                         parent: animation,
-                        curve:
-                            const Interval(0.15, 1.0, curve: Curves.easeInOut),
+                        curve: const Interval(0.15, 1.0, curve: Curves.easeInOut),
                       ),
                     ),
                     child: child,

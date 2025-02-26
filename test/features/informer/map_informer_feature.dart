@@ -33,8 +33,7 @@ class MapInformerFeature extends UnitFeature<MapInformer<String, String>> {
                 When(
                   'the map informer value gets updated with a new value with MapInformer.update',
                   (systemUnderTest, log, box, mocks, [example]) {
-                    final MapEntry<String, String> newEntry =
-                        example.firstValue();
+                    final MapEntry<String, String> newEntry = example.firstValue();
                     log.info(
                         'Setting the value of the MapInformer to the new value of $newEntry..');
                     systemUnderTest.update({newEntry.key: newEntry.value});
@@ -66,8 +65,7 @@ class MapInformerFeature extends UnitFeature<MapInformer<String, String>> {
                   ],
                 ),
               ],
-              description:
-                  'Using the MapInformer.updateCurrent to update the map',
+              description: 'Using the MapInformer.updateCurrent to update the map',
               steps: [
                 Given(
                   'the map informer has a starting value',
@@ -75,8 +73,7 @@ class MapInformerFeature extends UnitFeature<MapInformer<String, String>> {
                     log.info('Fetching starting values..');
                     final startingKey = example.firstValue();
                     final startingValue = example.secondValue();
-                    systemUnderTest
-                        .update(<String, String>{startingKey: startingValue});
+                    systemUnderTest.update(<String, String>{startingKey: startingValue});
                     log.info('System under test updated!');
                     final mapEntry = systemUnderTest.value.entries.single;
                     expect(mapEntry.key, startingKey);
@@ -145,8 +142,7 @@ class MapInformerFeature extends UnitFeature<MapInformer<String, String>> {
                     log.info('Fetching starting values..');
                     final startingKey = example.firstValue();
                     final startingValue = example.secondValue();
-                    systemUnderTest
-                        .update(<String, String>{startingKey: startingValue});
+                    systemUnderTest.update(<String, String>{startingKey: startingValue});
                     log.info('System under test updated!');
                     final mapEntry = systemUnderTest.value.entries.single;
                     expect(mapEntry.key, startingKey);
@@ -179,8 +175,7 @@ class MapInformerFeature extends UnitFeature<MapInformer<String, String>> {
                         'Checking if current value under starting key is equal to updated value.');
                     final hasKey = example.sixthValue();
                     expect(
-                      systemUnderTest.value[box.read(#newKey)] ==
-                          box.read(#newValue),
+                      systemUnderTest.value[box.read(#newKey)] == box.read(#newValue),
                       hasKey,
                     );
                     log.success('Starting key has updated value!');
@@ -208,8 +203,7 @@ class MapInformerFeature extends UnitFeature<MapInformer<String, String>> {
                 When(
                   'the map informer value gets updated with a new value with MapInformer.add',
                   (systemUnderTest, log, box, mocks, [example]) {
-                    final MapEntry<String, String> newEntry =
-                        example.firstValue();
+                    final MapEntry<String, String> newEntry = example.firstValue();
                     log.info(
                         'Setting the value of the MapInformer to the new value of $newEntry..');
                     systemUnderTest.add(newEntry.key, newEntry.value);
@@ -250,8 +244,7 @@ class MapInformerFeature extends UnitFeature<MapInformer<String, String>> {
                   ],
                 ),
               ],
-              description:
-                  'Using the MapInformer.remove to remove a value from the map',
+              description: 'Using the MapInformer.remove to remove a value from the map',
               steps: [
                 Given(
                   'the map informer has a starting value',
@@ -259,8 +252,7 @@ class MapInformerFeature extends UnitFeature<MapInformer<String, String>> {
                     log.info('Fetching starting values..');
                     final startingKey = example.firstValue();
                     final startingValue = example.secondValue();
-                    systemUnderTest
-                        .update(<String, String>{startingKey: startingValue});
+                    systemUnderTest.update(<String, String>{startingKey: startingValue});
                     log.info('System under test updated!');
                     final mapEntry = systemUnderTest.value.entries.single;
                     expect(mapEntry.key, startingKey);
@@ -285,8 +277,7 @@ class MapInformerFeature extends UnitFeature<MapInformer<String, String>> {
                   (systemUnderTest, log, box, mocks, [example]) {
                     final bool hasRemoveKey = example.fourthValue();
                     log.info('Checking if key is present..');
-                    final valueIsRemoved =
-                        systemUnderTest.value[box.read('startingKey')] == null;
+                    final valueIsRemoved = systemUnderTest.value[box.read('startingKey')] == null;
                     expect(valueIsRemoved, hasRemoveKey);
                     if (hasRemoveKey) {
                       log.success('Key found!');
@@ -325,8 +316,7 @@ class MapInformerFeature extends UnitFeature<MapInformer<String, String>> {
                   ],
                 ),
               ],
-              description:
-                  'Using the MapInformer.putIfAbsent method to update the map',
+              description: 'Using the MapInformer.putIfAbsent method to update the map',
               steps: [
                 Given(
                   'the map informer has a starting value',
@@ -334,8 +324,7 @@ class MapInformerFeature extends UnitFeature<MapInformer<String, String>> {
                     log.info('Fetching starting values..');
                     final startingKey = example.firstValue();
                     final startingValue = example.secondValue();
-                    systemUnderTest
-                        .update(<String, String>{startingKey: startingValue});
+                    systemUnderTest.update(<String, String>{startingKey: startingValue});
                     log.info('System under test updated!');
                     final mapEntry = systemUnderTest.value.entries.single;
                     expect(mapEntry.key, startingKey);
@@ -350,13 +339,11 @@ class MapInformerFeature extends UnitFeature<MapInformer<String, String>> {
                     final updateKey = example.thirdValue();
                     final valueIfAbsent = example.fourthValue();
                     log.info('Updating key $updateKey..');
-                    final result =
-                        systemUnderTest.putIfAbsent(updateKey, valueIfAbsent);
+                    final result = systemUnderTest.putIfAbsent(updateKey, valueIfAbsent);
                     box.write('result', result);
                     box.write('valueIfAbsent', valueIfAbsent);
                     box.write('updateKey', updateKey);
-                    log.success(
-                        'Updated key $updateKey with MapInformer.putIfAbsent!');
+                    log.success('Updated key $updateKey with MapInformer.putIfAbsent!');
                   },
                 ),
                 Then(
@@ -367,11 +354,9 @@ class MapInformerFeature extends UnitFeature<MapInformer<String, String>> {
                     final valueIfAbsent = box.read('valueIfAbsent');
                     final updateKey = box.read('updateKey');
                     log.success('Checking if value was absent..');
-                    expect(systemUnderTest.value[updateKey] == valueIfAbsent,
-                        keyWasAbsent);
+                    expect(systemUnderTest.value[updateKey] == valueIfAbsent, keyWasAbsent);
                     expect(result == valueIfAbsent, keyWasAbsent);
-                    log.success(
-                        'Value was${keyWasAbsent ? '' : ' not'} absent');
+                    log.success('Value was${keyWasAbsent ? '' : ' not'} absent');
                   },
                 )
               ],

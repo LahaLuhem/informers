@@ -96,11 +96,9 @@ class HomeViewModel extends BaseViewModel {
 
   // -------- ListInformer ---- ListInformer ---- ListInformer -------- \\
 
-  void updateListItems({required List<String> values}) =>
-      _listItems.update(values);
+  void updateListItems({required List<String> values}) => _listItems.update(values);
 
-  void decrementListItems() =>
-      _listItems.updateCurrent((value) => value..removeLast());
+  void decrementListItems() => _listItems.updateCurrent((value) => value..removeLast());
 
   void incrementListItems() =>
       _listItems.updateCurrent((value) => value..add(_randomGangstaLoremIpsum));
@@ -133,13 +131,11 @@ class HomeViewModel extends BaseViewModel {
 
   // -------- MapInformer ---- MapInformer ---- MapInformer -------- \\
 
-  void addMapItem({required String key, required String value}) =>
-      _mapItems.add(key, value);
+  void addMapItem({required String key, required String value}) => _mapItems.add(key, value);
 
   bool removeMapItem({required String key}) => _mapItems.remove(key) != null;
 
-  void updateMapItems({required Map<String, String> values}) =>
-      _mapItems.update(values);
+  void updateMapItems({required Map<String, String> values}) => _mapItems.update(values);
 
   void updateMapItemsKey({required String key, required String value}) =>
       _mapItems.updateKey(key, (_) => value, ifAbsent: () => value);
@@ -149,8 +145,8 @@ class HomeViewModel extends BaseViewModel {
       );
 
   void incrementMapItems() {
-    _mapItems.updateCurrent((current) =>
-        current..[_randomGangstaLoremIpsum] = _randomGangstaLoremIpsum);
+    _mapItems
+        .updateCurrent((current) => current..[_randomGangstaLoremIpsum] = _randomGangstaLoremIpsum);
   }
 
   String putIfAbsent({required String key, required String value}) =>
@@ -158,16 +154,14 @@ class HomeViewModel extends BaseViewModel {
 
   // -------- UTIL ---- UTIL ---- UTIL -------- \\
 
-  String get _randomGangstaLoremIpsum =>
-      ConstValues.randomGangstaLoremIpsum[random.nextInt(
+  String get _randomGangstaLoremIpsum => ConstValues.randomGangstaLoremIpsum[random.nextInt(
         ConstValues.randomGangstaLoremIpsum.length,
       )];
 
-  TextStyle get exampleTitleStyle =>
-      Theme.of(context).textTheme.bodyMedium!.copyWith(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          );
+  TextStyle get exampleTitleStyle => Theme.of(context).textTheme.bodyMedium!.copyWith(
+        fontSize: 20,
+        fontWeight: FontWeight.bold,
+      );
 
   static HomeViewModel get locate => HomeViewModel();
 }

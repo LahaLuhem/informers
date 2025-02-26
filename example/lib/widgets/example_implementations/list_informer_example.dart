@@ -25,8 +25,7 @@ class _ListInformerExampleState extends State<ListInformerExample> {
   final _removeFocusNode = FocusNode();
   final _firstWhereUpdatedFocusNode = FocusNode();
   final Informer<String?> _removeErrorText = Informer(null, forceUpdate: false);
-  final Informer<String?> _firstWhereErrorText =
-      Informer(null, forceUpdate: false);
+  final Informer<String?> _firstWhereErrorText = Informer(null, forceUpdate: false);
 
   @override
   void dispose() {
@@ -60,8 +59,7 @@ class _ListInformerExampleState extends State<ListInformerExample> {
   }
 
   void _tryRemove(HomeViewModel model) {
-    final success =
-        widget.model.removeListItem(value: _controllerBox.get(#remove).text);
+    final success = widget.model.removeListItem(value: _controllerBox.get(#remove).text);
     if (success) {
       _controllerBox.get(#remove).clear();
       _removeErrorText.update(null);
@@ -74,8 +72,8 @@ class _ListInformerExampleState extends State<ListInformerExample> {
   void _tryUpdateFirstWhereOrNull(HomeViewModel model) {
     final testValue = _controllerBox.get(#firstWhereTest).text;
     final updateValue = _controllerBox.get(#firstWhereUpdate).text;
-    final success = widget.model
-        .updateFirstWhereOrNull(testValue: testValue, updateValue: updateValue);
+    final success =
+        widget.model.updateFirstWhereOrNull(testValue: testValue, updateValue: updateValue);
     if (success) {
       _controllerBox.get(#firstWhereTest).clear();
       _controllerBox.get(#firstWhereUpdate).clear();
@@ -108,23 +106,20 @@ class _ListInformerExampleState extends State<ListInformerExample> {
                             const SizedBox(width: 16),
                             Expanded(
                               child: AnimatedOpacity(
-                                duration:
-                                    ConstDurations.halfDefaultAnimationDuration,
+                                duration: ConstDurations.halfDefaultAnimationDuration,
                                 opacity: listItemsIsEmpty ? 0.3 : 1,
                                 child: IgnorePointer(
                                   ignoring: listItemsIsEmpty,
                                   child: ElevatedButton(
                                     onPressed: widget.model.decrementListItems,
                                     child: AnimatedDefaultTextStyle(
-                                      style: widget.model.textTheme.bodyMedium!
-                                          .copyWith(
+                                      style: widget.model.textTheme.bodyMedium!.copyWith(
                                         decoration: listItemsIsEmpty
                                             ? TextDecoration.lineThrough
                                             : TextDecoration.none,
                                         color: Colors.white,
                                       ),
-                                      duration: ConstDurations
-                                          .halfDefaultAnimationDuration,
+                                      duration: ConstDurations.halfDefaultAnimationDuration,
                                       child: const Text('-'),
                                     ),
                                   ),
@@ -318,8 +313,7 @@ class _ListInformerExampleState extends State<ListInformerExample> {
                           errorText: removeErrorText,
                           alignLabelWithHint: true,
                         ),
-                        onSubmitted: (_) =>
-                            _firstWhereUpdatedFocusNode.requestFocus(),
+                        onSubmitted: (_) => _firstWhereUpdatedFocusNode.requestFocus(),
                       ),
                     ),
                     TextField(
@@ -329,8 +323,7 @@ class _ListInformerExampleState extends State<ListInformerExample> {
                         labelText: 'Updated value',
                         alignLabelWithHint: true,
                       ),
-                      onSubmitted: (_) =>
-                          _tryUpdateFirstWhereOrNull(widget.model),
+                      onSubmitted: (_) => _tryUpdateFirstWhereOrNull(widget.model),
                     ),
                     const SizedBox(height: 16),
                     ElevatedButton(

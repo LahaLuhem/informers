@@ -2,8 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:informers/inform_notifier.dart';
 
 /// Altered version of Flutter's [ValueNotifier] with extended list capabilities.
-class ListInformer<T> extends InformNotifier
-    implements ValueListenable<List<T>> {
+class ListInformer<T> extends InformNotifier implements ValueListenable<List<T>> {
   ListInformer(
     this._value, {
     bool forceUpdate = false,
