@@ -1,3 +1,8 @@
+## 0.0.4
+
+* **✨ New:** Added `data` getter/setter as an alias for `value`/`update()`.
+* **✨ New:** Added `silentUpdateCurrent` method for updating value based on current value without notifying listeners.
+
 ## 0.0.3+2
 
 * **✨ New:** Added standard value setter to `Informer` class.

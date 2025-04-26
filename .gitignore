@@ -33,3 +33,4 @@ gpt_agent_todo.md
 
 # Synced documentation
 .turbodev/secrets.yaml/
+/scripts/dart_fix.sh

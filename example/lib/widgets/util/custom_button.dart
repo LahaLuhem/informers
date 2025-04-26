@@ -48,7 +48,8 @@ class _CupertinoButtonHijacked extends StatefulWidget {
   bool get enabled => onPressed != null;
 
   @override
-  _CupertinoButtonHijackedState createState() => _CupertinoButtonHijackedState();
+  _CupertinoButtonHijackedState createState() =>
+      _CupertinoButtonHijackedState();
 }
 
 class _CupertinoButtonHijackedState extends State<_CupertinoButtonHijacked>
@@ -67,8 +68,9 @@ class _CupertinoButtonHijackedState extends State<_CupertinoButtonHijacked>
       value: 0.0,
       vsync: this,
     );
-    _opacityAnimation =
-        _animationController.drive(CurveTween(curve: Curves.decelerate)).drive(_opacityTween);
+    _opacityAnimation = _animationController
+        .drive(CurveTween(curve: Curves.decelerate))
+        .drive(_opacityTween);
     _setTween();
   }
 

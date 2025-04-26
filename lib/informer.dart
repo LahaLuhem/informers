@@ -21,7 +21,7 @@ class Informer<T> extends InformNotifier implements ValueListenable<T> {
   /// For silent updates, use [silentUpdate].
   set value(T newValue) => update(newValue);
 
-  /// Alternative etter of the current value of the informer.
+  /// Alternative getter of the current value of the informer.
   T get data => _value;
 
   /// Alternative setter of the current value of the informer.
