@@ -3,12 +3,13 @@ import 'package:flutter/foundation.dart';
 import 'inform_notifier.dart';
 
 /// Altered version of Flutter's [ValueNotifier] with extended map capabilities.
-class MapInformer<E, T> extends InformNotifier
-    implements ValueListenable<Map<E, T>> {
+class MapInformer<E, T> extends InformNotifier implements ValueListenable<Map<E, T>> {
   MapInformer(
     this._value, {
     bool forceUpdate = false,
-  }) : _forceUpdate = forceUpdate;
+    Map<E, T> Function(Map<E, T> map)? copier,
+  })  : _forceUpdate = forceUpdate,
+        _copier = copier ?? Map.of;
 
   /// Current map of the informer.
   Map<E, T> _value;
@@ -17,6 +18,9 @@ class MapInformer<E, T> extends InformNotifier
   ///
   /// Even though the value might be the same.
   final bool _forceUpdate;
+
+  /// Clones maps preserving runtime type
+  final Map<E, T> Function(Map<E, T> map) _copier;
 
   @override
 
@@ -28,8 +32,9 @@ class MapInformer<E, T> extends InformNotifier
     Map<E, T> value, {
     bool doNotifyListeners = true,
   }) {
-    if (_forceUpdate || !mapEquals(_value, value)) {
-      _value = value;
+    final newValue = _copier(value);
+    if (_forceUpdate || !mapEquals(_value, newValue)) {
+      _value = newValue;
       if (doNotifyListeners) {
         notifyListeners();
       }
@@ -41,7 +46,7 @@ class MapInformer<E, T> extends InformNotifier
     Map<E, T> Function(Map<E, T> current) current, {
     bool doNotifyListeners = true,
   }) {
-    final newValue = current(Map.from(_value));
+    final newValue = current(_copier(_value));
     if (_forceUpdate || !mapEquals(_value, newValue)) {
       _value = newValue;
       if (doNotifyListeners) {
